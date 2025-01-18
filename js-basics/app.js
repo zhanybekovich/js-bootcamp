@@ -1,26 +1,103 @@
 "use strict";
 
 /**
- * Variables and use strict
+ * Types
+ *
+ * Primitive types:
+ * - string
+ * - number
+ * - bigInt
+ * - boolean
+ * - Symbol
+ * - undefined
+ * - null
+ *
+ * Object
  */
 
-// Declare variable with value
-let message = "Hello!";
+// Strings
+const greeting = "Hello";
+console.log(greeting);
+
+const userName = "Alex";
+const message = `His name is ${userName}`;
 console.log(message);
 
-// Change value of the variable
-message = "Bye!";
-console.log(message);
+// Number
+const posX = 50;
+const posY = -100;
+const posZ = 1.55;
 
-// Old way of declaring variable
-var message2 = "Hi!";
-console.log(message2);
+const point = ((posX + posY + posZ) * 2) / posX;
+console.log(point);
 
-// Constant variables
-const message3 = "Good Day!";
-console.log(message3);
+// NaN
+console.log("Hello" / 2);
 
-// Don't change value of const variable
-// message3 = 'Some new value';
+// Infinity
+console.log(10 / 0);
+console.log(-5 / 0);
 
-// Don't use reserved words as variable names
+// BigInt
+// collision
+console.log(9900000000000091 + 1);
+console.log(9900000000000091 + 2);
+
+// Correct
+console.log(9900000000000091n + 1n);
+console.log(9900000000000091n + 2n);
+
+// Syntactic sugar
+console.log(1_000_000);
+console.log(1_00);
+
+// Boolean
+const isMarried = true;
+console.log(isMarried);
+
+const hasFriends = false;
+console.log(hasFriends);
+
+// Null
+let data = null;
+console.log(data);
+
+// Undefined
+let firstName;
+console.log(firstName);
+
+// Object
+const user = {
+  name: "Alex",
+  age: 30,
+  isMarried: false,
+};
+
+// typeof
+console.log(typeof isMarried);
+console.log(data);
+
+/**
+ * Type conversion
+ */
+
+// Implicit type conversion: type coercion
+console.log(10 + "22");
+console.log("18" / "9");
+
+// Explicit type conversion
+console.log(Number("10"));
+console.log(parseInt("4.6"));
+console.log(parseFloat("4.6"));
+
+console.log(String(30));
+console.log(String(true));
+console.log(String({}));
+
+console.log(Boolean(0));
+console.log(Boolean(1));
+console.log(Boolean(-1));
+console.log(Boolean("Hello"));
+console.log(Boolean(""));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
