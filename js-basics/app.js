@@ -1,57 +1,52 @@
 "use strict";
 
 /**
- * Alert, prompt, confirm, switch
+ * Loops
  */
 
-// Alert
-// alert("Hello");
-// alert(2 + 2);
+// While
+let count = 0;
 
-// Prompt
-// const age = prompt("How old are you?", 0);
-// console.log(age);
-
-// Confirm
-// const isReady = confirm("Are you ready?");
-
-// if (isReady) {
-//   console.log("Show starts!");
-// } else {
-//   console.log("Come back when you are ready!");
-// }
-
-// Switch
-const age = 18;
-
-switch (age) {
-  case 0:
-    console.log("Invalid age!");
-    break;
-  case 18:
-    console.log("Show me your passport!");
-    break;
-  case 1000:
-    console.log("Immortal!");
-    break;
-  default:
-    console.log("Input your age");
+while (count < 10) {
+  console.log(count);
+  count++;
 }
 
-const day = "monday";
+console.log("======");
 
-switch (day) {
-  case "monday":
-  case "tuesday":
-  case "wednesday":
-  case "thursday":
-  case "friday":
-    console.log("Work, work, work!");
+// Do while
+let count2 = 100;
+
+do {
+  console.log(count);
+  count++;
+} while (count < 10);
+
+console.log("======");
+
+// For
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+console.log("======");
+
+// Break
+for (let i = 1; i < 5; i++) {
+  if (i === 3) {
     break;
-  case "saturday":
-  case "sunday":
-    console.log("Weekend!");
-    break;
-  default:
-    console.log("Unknown day!");
+  }
+
+  console.log(i);
+}
+
+console.log("======");
+
+// Continue
+for (let i = 1; i < 8; i++) {
+  if (i === 3) {
+    continue;
+  }
+
+  console.log(i);
 }
