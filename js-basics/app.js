@@ -1,103 +1,65 @@
 "use strict";
 
 /**
- * Types
- *
- * Primitive types:
- * - string
- * - number
- * - bigInt
- * - boolean
- * - Symbol
- * - undefined
- * - null
- *
- * Object
+ * Arithmetic operators
  */
 
-// Strings
-const greeting = "Hello";
-console.log(greeting);
+// Addition
+console.log(2 + 3);
 
-const userName = "Alex";
-const message = `His name is ${userName}`;
-console.log(message);
+// Subtraction
+console.log(40 - 3);
 
-// Number
-const posX = 50;
-const posY = -100;
-const posZ = 1.55;
+// Multiplication
+console.log(3 * 3);
 
-const point = ((posX + posY + posZ) * 2) / posX;
-console.log(point);
+// Division
+console.log(20 / 2);
 
-// NaN
-console.log("Hello" / 2);
+// Power
+console.log(2 ** 4);
 
-// Infinity
-console.log(10 / 0);
-console.log(-5 / 0);
+// Remainder
+console.log(3 % 2);
 
-// BigInt
-// collision
-console.log(9900000000000091 + 1);
-console.log(9900000000000091 + 2);
+// Unary operators
 
-// Correct
-console.log(9900000000000091n + 1n);
-console.log(9900000000000091n + 2n);
+// Unary minus
+console.log(-"40");
 
-// Syntactic sugar
-console.log(1_000_000);
-console.log(1_00);
+// Unary plus
+console.log(typeof +"123");
 
-// Boolean
-const isMarried = true;
-console.log(isMarried);
+// Assignment
+let count = 1;
 
-const hasFriends = false;
-console.log(hasFriends);
+count = count + 3;
+console.log(count);
 
-// Null
-let data = null;
-console.log(data);
+count += 3;
 
-// Undefined
-let firstName;
-console.log(firstName);
+// Increment
+let x = 1;
+console.log(++x);
+console.log(x);
 
-// Object
-const user = {
-  name: "Alex",
-  age: 30,
-  isMarried: false,
-};
+console.log(x++);
+console.log(x);
 
-// typeof
-console.log(typeof isMarried);
-console.log(data);
+// Decrement
+let y = 1;
+console.log(--y);
+console.log(y);
 
-/**
- * Type conversion
- */
+console.log(y--);
+console.log(y);
 
-// Implicit type conversion: type coercion
-console.log(10 + "22");
-console.log("18" / "9");
+// Comparison operators
+console.log(5 > 3);
+console.log(5 < 10);
+console.log(5 == 5);
+console.log(5 === "5");
+console.log(5 != 3);
+console.log(5 !== "3");
 
-// Explicit type conversion
-console.log(Number("10"));
-console.log(parseInt("4.6"));
-console.log(parseFloat("4.6"));
-
-console.log(String(30));
-console.log(String(true));
-console.log(String({}));
-
-console.log(Boolean(0));
-console.log(Boolean(1));
-console.log(Boolean(-1));
-console.log(Boolean("Hello"));
-console.log(Boolean(""));
-console.log(Boolean(undefined));
-console.log(Boolean(null));
+console.log("abc" === "abd");
