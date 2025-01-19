@@ -1,50 +1,57 @@
 "use strict";
 
 /**
- * Conditionals
+ * Alert, prompt, confirm, switch
  */
 
-const year = 2025;
+// Alert
+// alert("Hello");
+// alert(2 + 2);
 
-if (year === 2025) {
-  console.log("Hurray!");
-} else if (year === 2026) {
-  console.log("It's the next year");
-} else {
-  console.log("It's not 2025");
+// Prompt
+// const age = prompt("How old are you?", 0);
+// console.log(age);
+
+// Confirm
+// const isReady = confirm("Are you ready?");
+
+// if (isReady) {
+//   console.log("Show starts!");
+// } else {
+//   console.log("Come back when you are ready!");
+// }
+
+// Switch
+const age = 18;
+
+switch (age) {
+  case 0:
+    console.log("Invalid age!");
+    break;
+  case 18:
+    console.log("Show me your passport!");
+    break;
+  case 1000:
+    console.log("Immortal!");
+    break;
+  default:
+    console.log("Input your age");
 }
 
-// Ternary operator
-const message = year === 2025 ? "Hurray!" : "Not 2025";
+const day = "monday";
 
-console.log(message);
-
-/**
- * Logical operators
- */
-
-// OR
-console.log(false || false);
-console.log(true || false);
-console.log(false || true);
-console.log(true || true);
-
-// AND
-console.log(false && false);
-console.log(true && false);
-console.log(false && true);
-console.log(true && true);
-
-// NOT
-console.log(!true);
-console.log(!false);
-
-// Nullish coalescing
-const a = null;
-const b = 100;
-
-const result = a || b;
-const result2 = a ?? b;
-
-console.log(result);
-console.log(result2);
+switch (day) {
+  case "monday":
+  case "tuesday":
+  case "wednesday":
+  case "thursday":
+  case "friday":
+    console.log("Work, work, work!");
+    break;
+  case "saturday":
+  case "sunday":
+    console.log("Weekend!");
+    break;
+  default:
+    console.log("Unknown day!");
+}
