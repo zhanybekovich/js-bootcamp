@@ -1,65 +1,50 @@
 "use strict";
 
 /**
- * Arithmetic operators
+ * Conditionals
  */
 
-// Addition
-console.log(2 + 3);
+const year = 2025;
 
-// Subtraction
-console.log(40 - 3);
+if (year === 2025) {
+  console.log("Hurray!");
+} else if (year === 2026) {
+  console.log("It's the next year");
+} else {
+  console.log("It's not 2025");
+}
 
-// Multiplication
-console.log(3 * 3);
+// Ternary operator
+const message = year === 2025 ? "Hurray!" : "Not 2025";
 
-// Division
-console.log(20 / 2);
+console.log(message);
 
-// Power
-console.log(2 ** 4);
+/**
+ * Logical operators
+ */
 
-// Remainder
-console.log(3 % 2);
+// OR
+console.log(false || false);
+console.log(true || false);
+console.log(false || true);
+console.log(true || true);
 
-// Unary operators
+// AND
+console.log(false && false);
+console.log(true && false);
+console.log(false && true);
+console.log(true && true);
 
-// Unary minus
-console.log(-"40");
+// NOT
+console.log(!true);
+console.log(!false);
 
-// Unary plus
-console.log(typeof +"123");
+// Nullish coalescing
+const a = null;
+const b = 100;
 
-// Assignment
-let count = 1;
+const result = a || b;
+const result2 = a ?? b;
 
-count = count + 3;
-console.log(count);
-
-count += 3;
-
-// Increment
-let x = 1;
-console.log(++x);
-console.log(x);
-
-console.log(x++);
-console.log(x);
-
-// Decrement
-let y = 1;
-console.log(--y);
-console.log(y);
-
-console.log(y--);
-console.log(y);
-
-// Comparison operators
-console.log(5 > 3);
-console.log(5 < 10);
-console.log(5 == 5);
-console.log(5 === "5");
-console.log(5 != 3);
-console.log(5 !== "3");
-
-console.log("abc" === "abd");
+console.log(result);
+console.log(result2);
