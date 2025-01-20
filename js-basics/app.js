@@ -1,52 +1,39 @@
 "use strict";
 
 /**
- * Loops
+ * Functions
  */
 
-// While
-let count = 0;
-
-while (count < 10) {
-  console.log(count);
-  count++;
+// Function declaration
+function logHello() {
+  console.log("Hello");
 }
 
-console.log("======");
+logHello();
+logHello();
 
-// Do while
-let count2 = 100;
-
-do {
-  console.log(count);
-  count++;
-} while (count < 10);
-
-console.log("======");
-
-// For
-for (let i = 0; i < 5; i++) {
-  console.log(i);
+// Function parameters
+function logHello2(userName) {
+  console.log(`Hello, ${userName}!`);
 }
 
-console.log("======");
+logHello2("John");
+logHello2("Bob");
 
-// Break
-for (let i = 1; i < 5; i++) {
-  if (i === 3) {
-    break;
-  }
-
-  console.log(i);
+// Return value
+function calcSumm(a, b) {
+  return a + b;
 }
 
-console.log("======");
+const summ1 = calcSumm(2, 2);
+console.log(summ1);
 
-// Continue
-for (let i = 1; i < 8; i++) {
-  if (i === 3) {
-    continue;
-  }
+const summ2 = calcSumm(30, 507);
+console.log(summ2);
 
-  console.log(i);
+// Default params
+function calcSumm2(a = 0, b = 0) {
+  return a + b;
 }
+
+console.log(calcSumm2(10, 89));
