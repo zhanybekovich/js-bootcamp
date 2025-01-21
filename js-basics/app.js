@@ -4,36 +4,39 @@
  * Functions
  */
 
-// Function declaration
-function logHello() {
+// Function expression
+const logHello = function () {
   console.log("Hello");
-}
+};
 
 logHello();
-logHello();
 
-// Function parameters
-function logHello2(userName) {
-  console.log(`Hello, ${userName}!`);
-}
+// Arrow functions
+const getSum = (a, b) => a + b;
 
-logHello2("John");
-logHello2("Bob");
+const sum1 = getSum(2, 3);
+const sum2 = getSum(3, 3);
+const totalSum = getSum(sum1, sum2);
+console.log(totalSum);
 
-// Return value
-function calcSumm(a, b) {
+const getSum2 = (a, b) => {
+  console.log("Calculating sum...");
   return a + b;
+};
+
+console.log(getSum2(30, 45));
+
+// Callback functions
+function getUppercaseStr(str) {
+  return str.toUpperCase();
 }
 
-const summ1 = calcSumm(2, 2);
-console.log(summ1);
+function printName(str, fn) {
+  const formattedStr = fn(str);
 
-const summ2 = calcSumm(30, 507);
-console.log(summ2);
-
-// Default params
-function calcSumm2(a = 0, b = 0) {
-  return a + b;
+  console.log(formattedStr);
 }
 
-console.log(calcSumm2(10, 89));
+const userName = "Ivan";
+
+printName(userName, getUppercaseStr);
