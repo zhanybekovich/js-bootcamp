@@ -1,90 +1,116 @@
 "use strict";
 
 /**
- * Objects
+ * Objects: copying, joining, destruction
  */
 
-const emptyObj = {};
-const anotherObj = new Object();
+// Objects are not equivalent
+const obj1 = { age: 10 };
+const obj2 = { age: 0 };
 
-const user = {
-  login: "ivan",
-  password: "123",
-  "registered date": "01.01.2025",
+console.log(obj1 === obj2);
 
-  age: 33,
-  isAdult: true,
-  job: null,
+// Reference
+const obj3 = { name: "Alex" };
+const obj4 = obj3;
 
+console.log(obj3 === obj4);
+
+// Checking if objects are equal
+const obj5 = {
+  name: "Alex",
+  age: 20,
+};
+
+const obj6 = {
+  name: "Alex",
+  age: 20,
+};
+
+const areObjectsEqual = (obj1, obj2) => {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (const key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+console.log(areObjectsEqual(obj5, obj6));
+
+// Cloning objects
+
+const obj7 = { name: "Alex", age: 20 };
+
+// const obj8 = Object.assign({}, obj7);
+
+// or
+const obj8 = { ...obj7 };
+
+// Joining objects
+const obj9 = { name: "Alex", age: 20 };
+const obj10 = { job: "Developer" };
+
+const user = Object.assign({}, obj9, obj10);
+console.log(user);
+
+// Optional chaining
+
+const user2 = {
+  name: "John",
+  age: 30,
   address: {
-    city: "Bishkek",
-    country: "Kyrgyzstan",
-  },
-
-  sayHi: function () {
-    console.log("Hello!");
+    // city: "New York",
+    zipCode: 10001,
   },
 };
 
-// Accessing
-console.log(user.login);
-console.log(user["registered date"]);
-console.log(user.address.city);
-user.sayHi();
+console.log(user2.address?.city);
 
-// Adding keys
-const user2 = {};
-
-user2.name = "Alex";
-user.age = 40;
-
-console.log(user2.name);
-
-// Delete keys
-delete user2.age;
-console.log(user2);
-
-// Creating objects
-const name = "Bob";
-const age = 18;
+// Destructuring
 
 const user3 = {
-  name,
-  age,
+  name: "John",
+  age: 30,
+  city: "New York",
 };
 
-console.log(user3);
+const { name, age } = user3;
+console.log(name, age);
 
-// Calculated keys
-const propName = "age";
-const propValue = 20;
+// Renaming at destruction
+const { name: username } = user3;
+console.log(username);
 
-const user4 = {
-  [propName]: propValue,
+// Default values
+const { country = "Unknown" } = user3;
+
+console.log(country);
+
+// Rest operator
+const logUser = (user) => {
+  const { name, age, city, ...otherInfo } = user;
+
+  console.log(`
+    Name: ${name}
+    Age: ${age}
+    City: ${city}`);
+
+  console.log(otherInfo);
 };
 
-console.log(user4);
-
-// Checking keys
-console.log("age" in user4);
-console.log("name" in user4);
-console.log(user4.isAdult !== undefined);
-
-console.log("========");
-
-// Loops
-const user5 = {
-  name: "Pete",
-  age: 10,
-  isStudent: true,
-};
-
-for (const key in user5) {
-  console.log(key);
-}
-
-console.log("=====");
-
-for (const key in user5) {
-  console.log(user5[key]);
-}
+logUser({
+  name: "John",
+  age: 30,
+  city: "New York",
+  company: "Google",
+  country: "USA",
+});
