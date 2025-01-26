@@ -1,98 +1,53 @@
 "use strict";
 
-/**
- * Array methods
- */
+const user = {
+  name: "John",
+  age: 25,
+  city: "New York",
+};
 
-const names = ["John", "Paul", "George", "Ringo"];
+const userKeys = Object.keys(user);
+console.log(userKeys);
 
-// length
-console.log(names.length);
+const userValues = Object.values(user);
+console.log(userValues);
 
-console.log("======");
+const userEntries = Object.entries(user);
+console.log(userEntries);
 
-// destruction
-const data = ["John", 29, "New-York", "Mercedes"];
-const [name, age] = data;
-
-console.log(name, age);
-
-// ...rest
-const [userName, userAge, ...additionalInfo] = data;
-console.log(userName, userAge, additionalInfo);
-
-console.log("======");
-
-// forEach
-const letters = ["a", "b", "d", "e", "f"];
-
-letters.forEach((element, i) => {
-  console.log(element, " = ", i);
+userEntries.forEach(([key, value]) => {
+  console.log("Key:", key);
+  console.log("Value:", value);
 });
 
-console.log("======");
-
-// indexOf
-const prices = [100, 200, 99, 24];
-console.log(prices.indexOf(24));
-console.log(prices.indexOf(200, 3));
-
-// lastIndexOf
-console.log(prices.lastIndexOf(99));
-
-// includes
-console.log(prices.includes(200));
-
-// find
-const users = [
-  {
-    name: "John",
-    age: 28,
-    city: "New-York",
-  },
-  {
-    name: "Paul",
-    age: 30,
-    city: "London",
-  },
-  {
-    name: "George",
-    age: 29,
-    city: "Astana",
-  },
-  {
-    name: "John",
-    age: 29,
-    city: "Bishkek",
-  },
-  {
-    name: "Mary",
-    age: 14,
-    city: "New-York",
-  },
-];
-
-console.log(users.find((user) => user.name === "Mary"));
-
-// filter
-console.log(users.filter((user) => user.name === "John"));
-
-const filteredUsers = users.filter(({ city, age }) => {
-  return city === "New-York" && age > 25;
+const formattedUserEntries = userEntries.map(([key, value]) => {
+  return [key.toUpperCase(), `--${value}--`];
 });
-console.log(filteredUsers);
 
-console.log("======");
+console.log(formattedUserEntries);
 
-// map
-const formattedUsers = users.map((user) => {
-  return `${user.name} is ${user.age} years old`;
-});
-console.log(formattedUsers);
+const userFormatted = Object.fromEntries(formattedUserEntries);
+console.log(userFormatted);
 
-// reduce
-const ageSum = users.reduce((ageSum, user) => {
-  return ageSum + user.age;
-}, 0);
+// Map
+const data = new Map([
+  [1, "Number 1"],
+  ["1", "as string 1"],
+]);
 
-console.log("Average age of users is", ageSum / users.length);
+console.log(data);
+
+// dynamically set values
+const data2 = new Map();
+
+data2.set(1, "1 as number");
+data2.set("1", "as a string");
+
+console.log(data2);
+
+// get
+console.log(data.get(1));
+console.log(data.get("1"));
+
+// check
+console.log(data.has("1"));
