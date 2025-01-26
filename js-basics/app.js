@@ -1,87 +1,98 @@
 "use strict";
 
 /**
- * String methods
+ * Array methods
  */
 
-const str = "Hello world!";
+const names = ["John", "Paul", "George", "Ringo"];
 
 // length
-console.log(str.length);
+console.log(names.length);
 
-// symbol by index
-console.log(str[0]);
-console.log(str[4]);
+console.log("======");
 
-// last symbol
-console.log(str[str.length - 1]);
+// destruction
+const data = ["John", 29, "New-York", "Mercedes"];
+const [name, age] = data;
 
-// at
-console.log(str.at(0));
-console.log(str.at(-1));
+console.log(name, age);
 
-// toLowerCase
-console.log(str.toLowerCase());
+// ...rest
+const [userName, userAge, ...additionalInfo] = data;
+console.log(userName, userAge, additionalInfo);
 
-// toUpperCase
-console.log(str.toUpperCase());
+console.log("======");
 
-// trim start
-console.log(str.trimStart());
+// forEach
+const letters = ["a", "b", "d", "e", "f"];
 
-// trim end
-console.log(str.trimEnd());
+letters.forEach((element, i) => {
+  console.log(element, " = ", i);
+});
 
-// trim
-console.log(str.trim());
+console.log("======");
 
-// index of
-console.log(str.indexOf("l"));
-console.log(str.indexOf("l", 5));
+// indexOf
+const prices = [100, 200, 99, 24];
+console.log(prices.indexOf(24));
+console.log(prices.indexOf(200, 3));
+
+// lastIndexOf
+console.log(prices.lastIndexOf(99));
 
 // includes
-console.log(str.includes("l"));
-console.log(str.includes("l", 5));
+console.log(prices.includes(200));
 
-// startsWith
-console.log(str.startsWith("Hello"));
+// find
+const users = [
+  {
+    name: "John",
+    age: 28,
+    city: "New-York",
+  },
+  {
+    name: "Paul",
+    age: 30,
+    city: "London",
+  },
+  {
+    name: "George",
+    age: 29,
+    city: "Astana",
+  },
+  {
+    name: "John",
+    age: 29,
+    city: "Bishkek",
+  },
+  {
+    name: "Mary",
+    age: 14,
+    city: "New-York",
+  },
+];
 
-// endsWith
-console.log(str.endsWith("!"));
+console.log(users.find((user) => user.name === "Mary"));
 
-// repeat
-console.log(str.repeat(3));
+// filter
+console.log(users.filter((user) => user.name === "John"));
 
-// substring
-console.log(str.substring(0, 5));
-console.log(str.substring(3, 0));
+const filteredUsers = users.filter(({ city, age }) => {
+  return city === "New-York" && age > 25;
+});
+console.log(filteredUsers);
 
-// slice
-console.log(str.slice(0, 5));
-console.log(str.slice(-3));
-console.log(str.slice(-3, -1));
+console.log("======");
 
-// replace
-console.log(str.replace("world", "JavaScript"));
-console.log(str.replaceAll("world", "JavaScript"));
-console.log(str.replace(/world/g, "JavaScript"));
-console.log(str.replace(/world/gi, "JavaScript"));
+// map
+const formattedUsers = users.map((user) => {
+  return `${user.name} is ${user.age} years old`;
+});
+console.log(formattedUsers);
 
-const str2 = "+996 (555) 555-55-55";
-console.log(str2.replace(/\d/g, "*"));
+// reduce
+const ageSum = users.reduce((ageSum, user) => {
+  return ageSum + user.age;
+}, 0);
 
-// split
-console.log(str2.split(" "));
-console.log(str2.split(""));
-
-// challenge
-const value = " john smith ";
-const clearValue = value.trim().toLowerCase();
-
-if (clearValue.length === 0) {
-  console.log("Error! Enter your name");
-}
-
-if (clearValue.includes("admin")) {
-  console.log("This name is already taken!");
-}
+console.log("Average age of users is", ageSum / users.length);
